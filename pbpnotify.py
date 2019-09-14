@@ -5,10 +5,12 @@ import smtplib
 import ssl
 import sys
 
+from typing import Any, Dict, List
+
 USER_AGENT = 'pbpmooo-notify/0.1 by ikvind'
 TOKEN_VAR = 'REDDIT_TOKEN'
 
-def run(args):
+def run(args: argparse.Namespace):
     if args.email is None:
         print('No emails to notify. Please supply --email at least once.')
         sys.exit(1)
@@ -29,7 +31,10 @@ def run(args):
     posts = [child['data'] for child in data['data']['children']]
     send_email(to_addrs, posts)
 
-def send_email(to_addrs, posts):
+def send_email(to_addrs: List[str], posts: List[Dict[str, Any]]):
+    """
+    Send a summary of posts to the supplied email addresses.
+    """
     user = os.getenv('GMAIL_USER')
     password = os.getenv('GMAIL_PASSWORD')
     port = 465  # For SSL
@@ -47,7 +52,7 @@ def send_email(to_addrs, posts):
         server.login(user, password)
         server.sendmail(user, to_addrs, message)
 
-def build_arg_parser():
+def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description='Send notifications of new posts to a private subreddit.')
     parser.add_argument('subreddit', metavar='SUB', help='the subreddit name')
     parser.add_argument('--email', action='append')
