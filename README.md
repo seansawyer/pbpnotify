@@ -32,6 +32,8 @@ Take the token and set it in an environment variable, too.
 export REDDIT_TOKEN="123456789012-abcdefghijklmnopqrstuvwxyz"
 ```
 
+Right now this thing only supports temporary tokens. Permanent token support via refresh will be added soon.
+
 Now set your GMail credentials in environment variables as well.
 
 ```bash
