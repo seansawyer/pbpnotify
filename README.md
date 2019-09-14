@@ -46,7 +46,7 @@ You will need the "less secure apps" setting enabled for your GMail account. For
 Now you can run the script:
 
 ```bash
-python pbpnotify.py
+python pbpnotify.py subname --email recipient1@domain1.com --email recipient2@domain2.com
 ```
 
 Deactivate the virtual environment when you are done.
