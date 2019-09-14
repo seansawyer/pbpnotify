@@ -29,7 +29,7 @@ Get a token.
 Take the token and set it in an environment variable, too.
 
 ```bash
-export REDDIT_TOKEN="358956669781-DlY08nCdcdKRc8lyEE35OnGboCI"
+export REDDIT_TOKEN="123456789012-abcdefghijklmnopqrstuvwxyz"
 ```
 
 Now set your GMail credentials in environment variables as well.
